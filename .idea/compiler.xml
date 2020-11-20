@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="REST-Spring" />
+        <module name="Spring-Data-Mongo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="12">
+      <module name="REST-Spring" target="12" />
+      <module name="Spring-Data-Mongo" target="12" />
+      <module name="Spring-Learning" target="12" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
