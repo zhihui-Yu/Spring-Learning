@@ -18,6 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
+//@WebMvcTest To avoid creating the whole context and test only our MVC Controllers, we can use @WebMvcTest
 public class FooControllerAppIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
