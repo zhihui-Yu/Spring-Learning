@@ -1,5 +1,6 @@
 package com.rest.controller;
 
+import com.rest.exception.NotFoundException;
 import com.rest.persistence.model.Foo;
 import com.rest.service.IFooService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -26,6 +28,11 @@ public class FooController {
     @Autowired
     private IFooService service;
 
+    // The @ExceptionHandler annotated method is only active for that particular Controller, not globally for the entire application.
+//    @ExceptionHandler({BadRequestException.class, NotFoundException.class})
+//    public void handleException() {
+//    }
+
     @GetMapping
     public List<Foo> findAll() {
         return service.findAll();
@@ -33,7 +40,14 @@ public class FooController {
 
     @GetMapping(value = "/{id}")
     public Foo findById(@PathVariable("id") Long id) {
-        return service.findById(id);
+        try {
+            throw new NotFoundException();
+//            int a = 1/0;
+//            return service.findById(id);
+        } catch (Exception exception) {
+            // advice
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Foo Not Found", exception);
+        }
     }
 
     @PostMapping

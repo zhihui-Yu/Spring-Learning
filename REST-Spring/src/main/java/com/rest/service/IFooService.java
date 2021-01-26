@@ -1,14 +1,12 @@
 package com.rest.service;
 
 import com.rest.persistence.model.Foo;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @author simple
  */
-@Service
 public interface IFooService {
     List<Foo> findAll();
 
