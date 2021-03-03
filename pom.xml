@@ -12,6 +12,7 @@
     <modules>
         <module>REST-Spring</module>
         <module>Spring-Data-Mongo</module>
+        <module>springboot-mybatis</module>
     </modules>
 
     <properties>
